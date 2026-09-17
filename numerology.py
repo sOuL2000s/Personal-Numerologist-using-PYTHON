@@ -346,6 +346,9 @@ def generate_pdf_report(report_data, output_path=None):
         safe = "".join(c if c.isalnum() else "_" for c in report_data.get("name", "report"))
         output_path = f"numerology_report_{safe}.pdf"
 
+    # Accept either a filesystem path (str/Path) or a file-like object (BytesIO)
+    is_filelike = hasattr(output_path, "write")
+
     styles = _pdf_styles()
     doc = SimpleDocTemplate(
         output_path, pagesize=LETTER,
@@ -503,6 +506,9 @@ def generate_pdf_report(report_data, output_path=None):
     story.append(_para(report_data.get("disclaimer", ""), styles["small"]))
 
     doc.build(story, onFirstPage=_footer, onLaterPages=_footer)
+
+    if is_filelike:
+        return output_path
     return os.path.abspath(output_path)
 
 
