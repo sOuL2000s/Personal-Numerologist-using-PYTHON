@@ -1,0 +1,10 @@
+# Core runtime dependency
+reportlab>=3.6.13,<5
+
+# Optional: pin for reproducible builds. Uncomment to lock versions.
+# reportlab==4.2.5
+
+# Optional dev tools (not needed to run the program):
+# pytest>=7.0        # for unit tests of the numerology math
+# ruff>=0.4          # fast linter
+# black>=24.0        # formatter
