@@ -8,3 +8,4 @@ reportlab>=3.6.13,<5
 # pytest>=7.0        # for unit tests of the numerology math
 # ruff>=0.4          # fast linter
 # black>=24.0        # formatter
+streamlit>=1.30
